@@ -33,5 +33,25 @@ flask_app/
 ├── Dockerfile                      # Dockerfile to build the Docker image
 ├── requirements.txt                # List of Python dependencies
 └── DAE.ipynb                       # Notebook for training & tuning the autoencoder model
+
+```
+
+## 🚀 Setting Up the Application with Docker
+To containerize and run the Audio Denoising Web Application using Docker, follow these simple steps:
+
+1️⃣ Build the Docker Image
+
+Navigate to the project directory (where the Dockerfile is located) and run:
+```
+docker build -t audio_denoiser .
+```
+- docker build: Command to build a Docker image.
+- -t audio_denoiser: Tags the image with the name audio_denoiser.
+- .: Refers to the current directory as the build context.
+
+
+
+
+
       
 
