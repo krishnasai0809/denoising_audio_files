@@ -28,7 +28,7 @@ This project is an Audio Denoising Application that leverages a deep learning au
 
 ├── templates/
 
-│   └── index.html                          
+ │   └── index.html                          
 
 ├── audio_denoiser_best_model.h5            
 
