@@ -24,19 +24,14 @@ This project is an Audio Denoising Application that leverages a deep learning au
 ## 📁 Repository Structure
 
 
-|flask_app/
-
+```
+flask_app/
 ├── templates/
-
- │   └── index.html                          
-
-├── audio_denoiser_best_model.h5            
-
-├── flask_app.py                            
-
-├── Dockerfile                              
-
-├── requirements.txt                        
-
-└── DAE.ipynb                               
+│   └── index.html                  # Frontend HTML file
+├── audio_denoiser_best_model.h5    # Trained audio denoising model
+├── flask_app.py                    # Flask backend application
+├── Dockerfile                      # Dockerfile to build the Docker image
+├── requirements.txt                # List of Python dependencies
+└── DAE.ipynb                       # Notebook for training & tuning the autoencoder model
+      
 
