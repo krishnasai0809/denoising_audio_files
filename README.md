@@ -56,7 +56,7 @@ Once the image is built, run it using:
 docker run --rm -it -p 5000:5000 audio_denoiser
 ```
 - docker run : Runs a new container from the image.
-- --rm : Automatically removes the container when it stops.
+- --rm : Automatically removes the container when it stops.  (optional)
 - -it : Runs the container in interactive mode with a terminal.
 - -p 5000:5000 : Maps port 5000 inside the container to port 5000 on your host machine.
 - audio_denoiser : The name of the image you just built.
