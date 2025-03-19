@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Denoiser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .upload-form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .audio-container {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: none;
+        }
+        .audio-container h3 {
+            margin-top: 0;
+            color: #444;
+        }
+        .audio-player {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+        #loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Audio Denoiser</h1>
+        
+        <div class="upload-form">
+            <form id="upload-form" enctype="multipart/form-data">
+                <input type="file" name="audio" accept="audio/*" required>
+                <button type="submit">Denoise Audio</button>
+            </form>
+        </div>
+
+        <div id="loading">
+            Processing audio... Please wait...
+        </div>
+
+        <div id="original-audio" class="audio-container">
+            <h3>Original Audio</h3>
+            <audio id="original-player" class="audio-player" controls></audio>
+        </div>
+
+        <div id="denoised-audio" class="audio-container">
+            <h3>Denoised Audio</h3>
+            <audio id="denoised-player" class="audio-player" controls></audio>
+            <a id="download-link" class="download-btn" download>Download Denoised Audio</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('upload-form').onsubmit = async (e) => {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            // Show loading message
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('original-audio').style.display = 'none';
+            document.getElementById('denoised-audio').style.display = 'none';
+            
+            try {
+                const response = await fetch('/denoise', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Update audio players
+                    document.getElementById('original-player').src = data.original;
+                    document.getElementById('denoised-player').src = data.denoised;
+                    document.getElementById('download-link').href = data.denoised;
+                    
+                    // Show audio containers
+                    document.getElementById('original-audio').style.display = 'block';
+                    document.getElementById('denoised-audio').style.display = 'block';
+                } else {
+                    alert('Error processing audio');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error processing audio');
+            } finally {
+                // Hide loading message
+                document.getElementById('loading').style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
