@@ -67,16 +67,19 @@ The web interface will be available at http://localhost:5000
 
 Open the application in your browser :
 
-Click on "Choose File" and upload the audio file you wish to denoise.
+- Click on "Choose File" and upload the audio file you wish to denoise.
 
 ⚠️ Note: The input file must be in .wav format.
 
-Click on the "Denoise" button to process the file.
+- Click on the "Denoise" button to process the file.
 
-After processing, you can listen to the denoised audio directly on the web page.
+- After processing, you can listen to the denoised audio directly on the web page.
 
-If desired, click on "Download" to save the denoised audio file locally.
+- If desired, click on "Download" to save the denoised audio file locally.
 
+
+## 📜 Application Flow
+<img width="820" alt="Screenshot 2025-03-19 at 6 02 29 PM" src="https://github.com/user-attachments/assets/e2ce804d-0cb9-4c29-b073-4bb00e261964" />
 
 
 
