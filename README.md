@@ -45,9 +45,40 @@ Navigate to the project directory (where the Dockerfile is located) and run:
 ```
 docker build -t audio_denoiser .
 ```
-- docker build: Command to build a Docker image.
-- -t audio_denoiser: Tags the image with the name audio_denoiser.
-- .: Refers to the current directory as the build context.
+- docker build : Command to build a Docker image.
+- -t audio_denoiser : Tags the image with the name audio_denoiser.
+- . : Refers to the current directory as the build context.
+
+2️⃣ Run the Docker Container
+
+Once the image is built, run it using:
+```
+docker run --rm -it -p 5000:5000 audio_denoiser
+```
+- docker run : Runs a new container from the image.
+- --rm : Automatically removes the container when it stops.
+- -it : Runs the container in interactive mode with a terminal.
+- -p 5000:5000 : Maps port 5000 inside the container to port 5000 on your host machine.
+- audio_denoiser : The name of the image you just built.
+
+The web interface will be available at http://localhost:5000
+
+## 🎯 Usage
+
+Open the application in your browser :
+
+Click on "Choose File" and upload the audio file you wish to denoise.
+
+⚠️ Note: The input file must be in .wav format.
+
+Click on the "Denoise" button to process the file.
+
+After processing, you can listen to the denoised audio directly on the web page.
+
+If desired, click on "Download" to save the denoised audio file locally.
+
+
+
 
 
 
