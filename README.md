@@ -78,7 +78,7 @@ Open the application in your browser :
 - If desired, click on "Download" to save the denoised audio file locally.
 
 
-## 📜 Application Flow
+## 📜 Project Flow
 <img width="820" alt="Screenshot 2025-03-19 at 6 02 29 PM" src="https://github.com/user-attachments/assets/e2ce804d-0cb9-4c29-b073-4bb00e261964" />
 
 
